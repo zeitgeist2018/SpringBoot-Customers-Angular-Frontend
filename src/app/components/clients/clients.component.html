@@ -1,0 +1,33 @@
+<div class="card border-primary bg-light my-3">
+  <div class="card-header">Clients</div>
+  <div class="card-body">
+    <h5 class="card-title">Client list</h5>
+    <div class="my-2 text-left">
+      <button type="button" [routerLink]="['/clients/form']" class="btn btn-primary btn-rounded">Create client</button>
+    </div>
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Surname</th>
+          <th>Email</th>
+          <th>Date</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients">
+          <td>{{ client.id }}</td>
+          <td>{{ client.name }}</td>
+          <td>{{ client.surname }}</td>
+          <td>{{ client.email }}</td>
+          <td>{{ client.createdAt }}</td>
+          <td><a [routerLink]="['/clients/form', client.id]" class="btn btn-xs btn-secondary">Edit</a></td>
+          <td><a (click)="delete(client)" class="btn btn-xs btn-danger text-white">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

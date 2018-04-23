@@ -1,0 +1,34 @@
+<div class="card bg-dark text-white">
+  <div class="card-header">
+    {{ title }}
+  </div>
+  <div class="card-body">
+    <a [routerLink]="['/clients']" class="btn btn-secondary mt-2 mb-8">&laquo; Back</a>
+    <form method="post">
+      <div class="form-group row">
+        <label for="name" class="col-form-label col-sm-2">Name</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="name" [(ngModel)]="client.name">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="surname" class="col-form-label col-sm-2">Surname</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" name="surname" [(ngModel)]="client.surname">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="email" class="col-form-label col-sm-2">Email</label>
+        <div class="col-sm-6">
+          <input type="email" class="form-control" name="email" [(ngModel)]="client.email">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6">
+          <button type="submit" *ngIf="!client.id" (click)="create()" class="btn btn-primary" role="button">Create</button>
+          <button type="submit" *ngIf="client.id" (click)="update()" class="btn btn-primary" role="button">Update</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
